@@ -685,3 +685,37 @@
   bottom: -5px;
   right: -5px;
 }
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.benefit-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  color: var(--icon-gold, #9a6b20);
+}
+
+.benefit-item p {
+  margin: 0;
+  text-align: left;
+}
+
+@media (max-width: 760px) {
+  .benefit-item {
+    gap: 7px;
+  }
+
+  .benefit-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .benefit-item p {
+    font-size: 11px;
+  }
+}
