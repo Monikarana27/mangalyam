@@ -19,7 +19,7 @@ export default function Packages() {
             key={p.name}
           >
             <img
-              src={`/images/${p.image}.png`}
+              src={`/images/${p.image}.webp`}
               alt={`${p.name} celebration inspiration`}
             />
             <div className="collection-body">

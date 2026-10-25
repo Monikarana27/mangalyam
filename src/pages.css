@@ -1,7 +1,6 @@
 /* Interior pages share the original homepage's palette and components. */
 .inner-page {
-  background:
-    radial-gradient(ellipse at top, #fff9e8, transparent 65%), #f5e8cc;
+  background: linear-gradient(180deg, #faf7f1, #fffdf9);
 }
 .navigation a[aria-current='page'] {
   color: var(--wine);
@@ -78,7 +77,7 @@
   width: 100%;
   aspect-ratio: 4/5;
   object-fit: cover;
-  border-radius: 140px 140px 12px 12px;
+  border-radius: 16px;
   border: 1px solid var(--gold);
   padding: 6px;
 }
@@ -133,10 +132,10 @@
 }
 .collection-card {
   min-width: 0;
-  border: 1px solid #c5a46b;
-  border-radius: 100px 100px 12px 12px;
+  border: 1px solid #ded6c9;
+  border-radius: 16px;
   overflow: hidden;
-  background: #fff8e8;
+  background: #fffdf9;
   display: flex;
   flex-direction: column;
   box-shadow: 0 8px 25px #5b2c2508;
@@ -176,7 +175,7 @@
   position: absolute;
   bottom: 14px;
   left: 20px;
-  background: #fff8e8;
+  background: #fffdf9;
   border-radius: 30px;
   padding: 4px 15px;
   font-size: 12px;
@@ -197,7 +196,7 @@
   grid-template-columns: 1.4fr 1fr 1fr 1fr auto;
   gap: 14px;
   padding: 22px;
-  border: 1px solid #c5a46b;
+  border: 1px solid #ded6c9;
   background: #fff9eb;
   border-radius: 10px;
   align-items: end;
@@ -215,7 +214,7 @@
 .inner-content textarea {
   width: 100%;
   min-width: 0;
-  border: 1px solid #c5a46b;
+  border: 1px solid #ded6c9;
   border-radius: 5px;
   padding: 12px;
   background: #fffcf5;
@@ -249,7 +248,7 @@
   padding: 0;
   border: 1px solid var(--gold);
   border-radius: 16px;
-  background: #fff8e8;
+  background: #fffdf9;
   color: #381b13;
 }
 .venue-dialog::backdrop {
@@ -321,16 +320,16 @@ details p {
   width: 100%;
   aspect-ratio: 4/3;
   object-fit: cover;
-  border-radius: 90px 90px 10px 10px;
+  border-radius: 16px;
   margin-bottom: 28px;
 }
 .contact-grid aside p {
   margin: 18px 0;
 }
 .enquiry-form {
-  background: #fff8e8;
+  background: #fffdf9;
   padding: 28px;
-  border: 1px solid #c5a46b;
+  border: 1px solid #ded6c9;
   border-radius: 12px;
   display: grid;
   gap: 20px;
@@ -347,8 +346,8 @@ details p {
 .brief-result {
   margin-top: 32px;
   padding: 28px;
-  background: #fff8e8;
-  border: 1px solid #c5a46b;
+  background: #fffdf9;
+  border: 1px solid #ded6c9;
 }
 .brief-result textarea {
   margin: 20px 0;
@@ -407,7 +406,7 @@ details p {
     padding: 18px;
   }
   .collection-card {
-    border-radius: 70px 70px 12px 12px;
+    border-radius: 16px;
   }
   .site-end {
     flex-direction: column;
@@ -415,5 +414,104 @@ details p {
   }
   .editorial-section {
     margin-top: 42px;
+  }
+}
+
+/* Contemporary interior details; the reference homepage keeps its styling. */
+.collection-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 22px;
+  flex-wrap: wrap;
+}
+.collection-toolbar p {
+  font-size: 14px;
+}
+.shortlist-filter {
+  padding: 12px 18px;
+  background: transparent;
+  border: 1px solid var(--wine);
+  color: var(--wine);
+  border-radius: 30px;
+  cursor: pointer;
+  font: inherit;
+}
+.shortlist-filter[aria-pressed='true'] {
+  background: var(--wine);
+  color: white;
+}
+.save-venue {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #e5ddd1;
+  border-radius: 50%;
+  background: #fffdf9;
+  color: var(--wine);
+  cursor: pointer;
+}
+.save-venue svg {
+  width: 21px;
+  height: 21px;
+}
+.venue-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  list-style: none;
+  margin: 16px 0;
+}
+.venue-features li {
+  font-size: 11px;
+  background: #f3eee6;
+  padding: 5px 9px;
+  border-radius: 5px;
+}
+.shortlist-content {
+  text-align: left;
+  margin: 20px 0;
+}
+.shortlist-list {
+  list-style: none;
+  padding: 0;
+  max-height: 45svh;
+  overflow: auto;
+}
+.shortlist-list li {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #ded6c9;
+}
+.shortlist-list small {
+  display: block;
+  margin-top: 5px;
+}
+.shortlist-list .text-button {
+  margin: 0;
+}
+.inner-content button:focus-visible,
+.inner-content a:focus-visible {
+  outline: 2px solid var(--wine);
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .collection-card {
+    transition:
+      box-shadow 180ms ease,
+      transform 180ms ease;
+  }
+  .collection-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px #391f1510;
   }
 }

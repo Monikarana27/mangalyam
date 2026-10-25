@@ -27,7 +27,7 @@ export const venues = [
     city: 'Bengaluru',
     type: 'Banquet',
     guests: 350,
-    image: 'details',
+    image: 'modern',
     description:
       'An intimate reception concept with warm lighting and thoughtful tablescapes.',
     features: ['Indoor reception', 'Seated dining', 'Flexible décor'],

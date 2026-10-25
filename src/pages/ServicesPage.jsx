@@ -1,7 +1,14 @@
 import PageIntro from '../components/PageIntro'
 import { services } from '../data/services'
 import ServiceIcon from '../components/ServiceIcon'
-const images = ['palace', 'garden', 'details', 'garden', 'palace', 'details']
+const images = [
+  'modern',
+  'garden',
+  'catering',
+  'guest-room',
+  'photography',
+  'details',
+]
 const inclusions = [
   'Guest capacity, ceremony space and dining arrangements',
   'Accommodation, welcome events and multi-day itineraries',
@@ -23,7 +30,7 @@ export default function ServicesPage() {
           <article className="collection-card" id={s.id} key={s.id}>
             <img
               loading="lazy"
-              src={`/images/${images[i]}.png`}
+              src={`/images/${images[i]}.webp`}
               alt={`Illustrative ${s.title.toLowerCase()} inspiration`}
             />
             <div className="collection-body">

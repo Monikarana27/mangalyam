@@ -1,3 +1,4 @@
+import { site } from '../config/site'
 import { useRoute } from '../hooks/useRoute'
 import { useRef, useState } from 'react'
 import HeaderActions from './HeaderActions'
@@ -26,8 +27,14 @@ export default function Header() {
 
   return (
     <header className="site-header" onKeyDown={handleKeyDown}>
-      <a className="brand" href="#/" aria-label="Mangalyam home">
+      <a
+        className="brand"
+        href="#/"
+        onClick={() => setMenuOpen(false)}
+        aria-label={`${site.name} home`}
+      >
         <img src="/images/mangalyam-logo.png" alt="" width="56" height="56" />
+        <span className="brand-wordmark"><span>{site.name}</span><small>Celebrations, thoughtfully planned</small></span>
       </a>
 
       <button
@@ -38,7 +45,8 @@ export default function Header() {
         aria-controls="main-navigation"
         onClick={() => setMenuOpen((open) => !open)}
       >
-        {menuOpen ? 'Close' : 'Menu'}
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">{menuOpen ? <path d="m6 6 12 12M18 6 6 18" /> : <path d="M4 8h16M4 16h16" />}</svg>
+        <span>{menuOpen ? 'Close' : 'Menu'}</span>
       </button>
 
       <nav
@@ -50,7 +58,7 @@ export default function Header() {
           <a
             key={label}
             href={href}
-            aria-current={route === href.slice(1) ? 'page' : undefined}
+            aria-current={route === href.slice(1) || (href !== '#/' && route.startsWith(`${href.slice(1)}/`)) ? 'page' : undefined}
             onClick={() => setMenuOpen(false)}
           >
             {label}
@@ -58,7 +66,9 @@ export default function Header() {
         ))}
       </nav>
 
-      <HeaderActions />
+      <div className="header-controls" onClick={() => setMenuOpen(false)}>
+        <HeaderActions />
+      </div>
     </header>
   )
 }

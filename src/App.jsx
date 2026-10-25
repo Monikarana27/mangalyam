@@ -1,4 +1,7 @@
 import { useEffect, useRef } from 'react'
+import SiteFooter from './components/SiteFooter'
+import SupportWidget from './components/SupportWidget'
+import HomeSections from './components/HomeSections'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Services from './components/Services'
@@ -13,6 +16,7 @@ import Contact from './pages/Contact'
 import { useRoute } from './hooks/useRoute'
 import './App.css'
 import './pages.css'
+import './site-shell.css'
 const titles = {
   '/': 'One platform for every celebration',
   '/about': 'About us',
@@ -29,13 +33,13 @@ export default function App() {
   const first = useRef(true)
   useEffect(() => {
     document.title = `${titles[path] || 'Celebration journal'} | Mangalyam`
-    window.scrollTo(0, 0)
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
     if (first.current) {
       first.current = false
     } else {
-      main.current?.focus()
+      main.current?.focus({ preventScroll: true })
     }
-  }, [path])
+  }, [path, route])
   let page
   switch (path) {
     case '/':
@@ -43,6 +47,8 @@ export default function App() {
         <>
           <Hero />
           <Services />
+          <Footer />
+          <HomeSections />
         </>
       )
       break
@@ -53,7 +59,7 @@ export default function App() {
       page = <ServicesPage />
       break
     case '/venues':
-      page = <Venues />
+      page = <Venues key={route} queryString={query} />
       break
     case '/packages':
       page = <Packages />
@@ -93,14 +99,8 @@ export default function App() {
       <main id="main-content" ref={main} tabIndex="-1">
         {page}
       </main>
-      <Footer />
-      {path !== '/' && (
-        <div className="site-end">
-          <a href="#/">Mangalyam</a>
-          <span>A celebration planning concept · Frontend demonstration</span>
-          <a href="#/contact">Prepare an enquiry →</a>
-        </div>
-      )}
+      <SiteFooter />
+      <SupportWidget />
     </div>
   )
 }

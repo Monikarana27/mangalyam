@@ -12,7 +12,7 @@ export default function Blog() {
         {articles.map((a) => (
           <article className="collection-card" key={a.id}>
             <img
-              src={`/images/${a.image}.png`}
+              src={`/images/${a.image}.webp`}
               alt={`${a.category} inspiration`}
             />
             <div className="collection-body">
@@ -52,7 +52,7 @@ export function Article({ id }) {
       />
       <img
         className="article-cover"
-        src={`/images/${a.image}.png`}
+        src={`/images/${a.image}.webp`}
         alt={`${a.category} inspiration`}
       />
       <div className="article-copy">

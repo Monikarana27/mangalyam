@@ -1,3 +1,4 @@
+import { site, phoneUrl, whatsappUrl } from '../config/site'
 import { useState } from 'react'
 import PageIntro from '../components/PageIntro'
 import { services } from '../data/services'
@@ -5,6 +6,7 @@ export default function Contact({ query }) {
   const params = new URLSearchParams(query)
   const [brief, setBrief] = useState('')
   const [copied, setCopied] = useState(false)
+  const [copyError, setCopyError] = useState(false)
   function submit(e) {
     e.preventDefault()
     const d = new FormData(e.currentTarget)
@@ -22,7 +24,9 @@ export default function Contact({ query }) {
     try {
       await navigator.clipboard.writeText(brief)
       setCopied(true)
+      setCopyError(false)
     } catch {
+      setCopyError(true)
       setCopied(false)
     }
   }
@@ -36,7 +40,7 @@ export default function Contact({ query }) {
       <div className="contact-grid">
         <aside>
           <img
-            src="/images/details.png"
+            src="/images/details.webp"
             alt="Brass candleholders and floral details on a celebration table"
           />
           <h2>A few details go a long way.</h2>
@@ -45,10 +49,23 @@ export default function Contact({ query }) {
             want around you. You can leave undecided details open.
           </p>
           <div className="demo-note">
-            This demo prepares a brief on your device. It does not send an
-            enquiry or reserve a service. No real contact details have been
-            supplied.
+            Your brief is prepared on this device. Nothing is sent
+            automatically, and no booking is reserved. Review your details
+            before choosing how to share them.
           </div>
+          <div className="contact-channels">
+            {phoneUrl() && (
+              <a href={phoneUrl()}>Call {site.phoneLabel || site.phone}</a>
+            )}
+            {whatsappUrl() && (
+              <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+                WhatsApp us ↗
+              </a>
+            )}
+            {site.email && <a href={`mailto:${site.email}`}>Email us</a>}
+          </div>
+          {site.address && <p>{site.address}</p>}
+          {site.supportHours && <p>{site.supportHours}</p>}
         </aside>
         <form className="enquiry-form" onSubmit={submit}>
           <div className="form-grid">
@@ -156,9 +173,35 @@ export default function Contact({ query }) {
             value={brief}
             rows="13"
           />
-          <button className="button" onClick={copy}>
-            {copied ? 'Copied' : 'Copy brief'}
-          </button>
+          <div className="brief-actions">
+            <button className="button" onClick={copy}>
+              {copied ? 'Copied' : 'Copy brief'}
+            </button>
+            {whatsappUrl(brief) && (
+              <a
+                className="button"
+                href={whatsappUrl(brief)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Share via WhatsApp ↗
+              </a>
+            )}
+            {site.email && (
+              <a
+                className="text-link"
+                href={`mailto:${site.email}?subject=${encodeURIComponent('Celebration enquiry')}&body=${encodeURIComponent(brief)}`}
+              >
+                Open email draft →
+              </a>
+            )}
+          </div>
+          {copyError && (
+            <p role="status">
+              Copy is unavailable in this browser. Select the brief above and
+              copy it manually.
+            </p>
+          )}
         </section>
       )}
     </div>

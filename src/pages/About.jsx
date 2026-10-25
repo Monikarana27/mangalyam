@@ -9,8 +9,8 @@ export default function About() {
       />
       <section className="story-grid">
         <img
-          src="/images/palace.png"
-          alt="Illustrative heritage courtyard styled for an Indian wedding"
+          src="/images/modern.webp"
+          alt="Contemporary glass pavilion with ivory wedding décor"
         />
         <div>
           <p className="eyebrow">Tradition meets thoughtful planning</p>

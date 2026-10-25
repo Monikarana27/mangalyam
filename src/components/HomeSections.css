@@ -1,0 +1,364 @@
+.home-discovery {
+  background: #fcfaf6;
+  color: #44382f;
+  font: 16px/1.65 var(--font-body);
+}
+.home-discovery *,
+.home-discovery *::before,
+.home-discovery *::after {
+  box-sizing: border-box;
+}
+.home-discovery img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+.home-section {
+  max-width: 1240px;
+  margin: auto;
+  padding: 80px 44px;
+}
+.home-section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 32px;
+}
+.home-section-heading > p {
+  max-width: 330px;
+  color: #76675b;
+  font-size: 15px;
+}
+.home-discovery h2 {
+  font: 400 clamp(32px, 3.5vw, 48px)/1.15 var(--font-display);
+  color: var(--wine);
+  margin: 14px 0 0;
+  letter-spacing: -0.6px;
+}
+.home-discovery h2 em {
+  font-weight: 400;
+}
+.home-discovery h3 {
+  font: 400 25px/1.25 var(--font-display);
+  margin: 0;
+}
+.home-discovery .eyebrow {
+  font-size: 10px;
+  letter-spacing: 2.2px;
+}
+.style-mosaic {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: repeat(2, 245px);
+  gap: 20px;
+}
+.style-tile {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  color: white;
+}
+.style-tile:first-child {
+  grid-row: span 2;
+}
+.style-tile img {
+  height: 100%;
+}
+.style-tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 20%, #160f08c9);
+}
+.style-tile > div {
+  position: absolute;
+  z-index: 1;
+  bottom: 25px;
+  left: 28px;
+  right: 28px;
+}
+.style-tile h3 {
+  color: white;
+  font-size: 30px;
+}
+.style-tile p {
+  font-size: 13px;
+  margin: 8px 0 14px;
+  color: #fff8ee;
+}
+.style-tile span {
+  font-size: 12px;
+  font-weight: 700;
+}
+.home-caption {
+  font-size: 11px;
+  color: #786b60;
+  margin-top: 18px;
+}
+.home-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--wine);
+  padding-bottom: 5px;
+  border-bottom: 1px solid #b6976a;
+  display: inline-block;
+}
+.home-venue-section {
+  padding-top: 10px;
+}
+.home-venue-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.home-venue-card {
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #e5ddd1;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.home-venue-card img {
+  height: 230px;
+}
+.home-venue-copy {
+  padding: 24px;
+}
+.home-venue-copy h3 {
+  color: var(--wine);
+  margin: 10px 0;
+}
+.home-venue-copy > p:not(.eyebrow) {
+  font-size: 13px;
+  color: #76675b;
+}
+.planning-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  border-top: 1px solid #e5ddd1;
+}
+.planning-photo {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.planning-photo img {
+  height: 560px;
+}
+.planning-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 50%, #24150dad);
+}
+.planning-photo > span {
+  position: absolute;
+  z-index: 1;
+  bottom: 30px;
+  left: 30px;
+  color: white;
+  font: italic 38px/1.2 var(--font-display);
+}
+.planning-steps {
+  list-style: none;
+  margin: 30px 0;
+  padding: 0;
+}
+.planning-steps li {
+  display: flex;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid #e5ddd1;
+}
+.planning-steps li > span {
+  color: #9a7545;
+  font-size: 12px;
+  padding-top: 3px;
+}
+.planning-steps h3 {
+  font: 700 16px/1.4 var(--font-body);
+  color: #43362e;
+}
+.planning-steps p {
+  font-size: 14px;
+  color: #76675b;
+  margin-top: 6px;
+}
+.home-faq {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+  padding-top: 20px;
+}
+.home-faq .home-link {
+  margin-top: 25px;
+}
+.home-faq details {
+  border-color: #ded6c9;
+}
+.home-faq summary {
+  font-size: 15px;
+  padding-right: 10px;
+}
+.home-faq details p {
+  font-size: 14px;
+  color: #76675b;
+}
+.home-closing {
+  background: #501e2a;
+  padding: 65px 24px;
+  text-align: center;
+  color: #f5e9da;
+}
+.home-closing .eyebrow {
+  color: #d7bb8c;
+}
+.home-closing h2 {
+  color: #fff8eb;
+  margin: 16px 0;
+}
+.home-closing > p:not(.eyebrow) {
+  font-size: 14px;
+}
+.home-closing .button {
+  margin-top: 25px;
+  background: #f5ebda;
+  color: #501e2a;
+  border-color: #f5ebda;
+}
+.discovery-footer {
+  max-width: 1240px;
+  margin: auto;
+  padding: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 25px;
+}
+.footer-brand {
+  font: 30px var(--font-display);
+  color: var(--wine);
+}
+.discovery-footer > div p {
+  font-size: 12px;
+  margin-top: 8px;
+}
+.discovery-footer nav {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 13px;
+}
+.discovery-footer > .home-caption {
+  width: 100%;
+  border-top: 1px solid #e5ddd1;
+  padding-top: 20px;
+  margin: 0;
+}
+.home-discovery a:focus-visible,
+.home-discovery button:focus-visible,
+.home-discovery summary:focus-visible {
+  outline: 3px solid #a67940;
+  outline-offset: 5px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .style-tile img {
+    transition: transform 0.3s ease;
+  }
+  .style-tile:hover img {
+    transform: scale(1.035);
+  }
+}
+@media (max-width: 900px) {
+  .home-section {
+    padding: 52px 28px;
+  }
+  .home-section-heading {
+    gap: 24px;
+  }
+  .home-venue-grid {
+    gap: 14px;
+  }
+  .home-venue-copy {
+    padding: 17px;
+  }
+  .home-venue-copy h3 {
+    font-size: 22px;
+  }
+  .home-venue-card img {
+    height: 190px;
+  }
+  .planning-section,
+  .home-faq {
+    gap: 30px;
+  }
+  .planning-photo img {
+    height: 560px;
+  }
+}
+@media (max-width: 600px) {
+  .home-section {
+    padding: 42px 20px;
+  }
+  .home-section-heading {
+    display: block;
+  }
+  .home-section-heading > p,
+  .home-section-heading > a {
+    margin-top: 18px;
+  }
+  .style-mosaic {
+    grid-template-columns: 1fr;
+    grid-template-rows: 340px 250px 250px;
+    gap: 16px;
+  }
+  .style-tile:first-child {
+    grid-row: auto;
+  }
+  .style-tile > div {
+    left: 22px;
+    right: 22px;
+    bottom: 22px;
+  }
+  .style-tile h3 {
+    font-size: 27px;
+  }
+  .home-venue-grid,
+  .planning-section,
+  .home-faq {
+    grid-template-columns: 1fr;
+  }
+  .home-venue-card img {
+    height: 230px;
+  }
+  .home-venue-copy {
+    padding: 22px;
+  }
+  .planning-photo img {
+    height: 340px;
+  }
+  .planning-copy .button {
+    font-size: 13px;
+  }
+  .discovery-footer {
+    padding: 32px 20px;
+  }
+  .discovery-footer nav {
+    gap: 18px;
+  }
+}
