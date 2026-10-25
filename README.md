@@ -1,5 +1,7 @@
 # Mangalyam — Celebration Services Landing Page
+## Live Demo
 
+[View Mangalyam](https://mangalyam-cgyc84pn2-monikas-projects-adbe1c69.vercel.app/)
 A responsive React landing page recreated from the supplied design reference for a frontend development assignment.
 
 The implementation focuses on visual similarity, responsive layouts, reusable components, and readable code.
