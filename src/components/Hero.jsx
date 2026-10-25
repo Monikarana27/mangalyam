@@ -32,11 +32,11 @@ export default function Hero() {
             <em>Special Day</em>
           </h2>
 
-          <a className="button" href="#services">
+          <a className="button" href="#/services">
             Book now
           </a>
 
-         <TrustBadges />
+          <TrustBadges />
         </div>
       </div>
     </section>

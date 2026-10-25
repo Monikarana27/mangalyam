@@ -1,18 +1,19 @@
+import { useRoute } from '../hooks/useRoute'
 import { useRef, useState } from 'react'
 import HeaderActions from './HeaderActions'
 
 const navigation = [
-  { label: 'Home', href: '#home' },
-  // TODO: Add the corresponding sections before submission.
-  { label: 'About us', href: '#services' },
-  { label: 'Services', href: '#services' },
-  { label: 'Venues', href: '#services' },
-  { label: 'Packages', href: '#services' },
-  { label: 'Blog', href: '#services' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '#/' },
+  { label: 'About us', href: '#/about' },
+  { label: 'Services', href: '#/services' },
+  { label: 'Venues', href: '#/venues' },
+  { label: 'Packages', href: '#/packages' },
+  { label: 'Blog', href: '#/blog' },
+  { label: 'Contact', href: '#/contact' },
 ]
 
 export default function Header() {
+  const route = useRoute().split('?')[0]
   const [menuOpen, setMenuOpen] = useState(false)
   const menuButtonRef = useRef(null)
 
@@ -25,13 +26,8 @@ export default function Header() {
 
   return (
     <header className="site-header" onKeyDown={handleKeyDown}>
-      <a className="brand" href="#home" aria-label="Mangalyam home">
-        <img
-          src="/images/mangalyam-logo.png"
-          alt=""
-          width="56"
-          height="56"
-        />
+      <a className="brand" href="#/" aria-label="Mangalyam home">
+        <img src="/images/mangalyam-logo.png" alt="" width="56" height="56" />
       </a>
 
       <button
@@ -54,6 +50,7 @@ export default function Header() {
           <a
             key={label}
             href={href}
+            aria-current={route === href.slice(1) ? 'page' : undefined}
             onClick={() => setMenuOpen(false)}
           >
             {label}
@@ -61,7 +58,7 @@ export default function Header() {
         ))}
       </nav>
 
-     <HeaderActions />
+      <HeaderActions />
     </header>
   )
 }

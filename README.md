@@ -1,128 +1,82 @@
-# Mangalyam — Celebration Services Landing Page
+# Mangalyam — Celebration Planning Website
 
-A responsive React landing page recreated from the supplied design reference for a frontend development assignment.
+A React frontend extending the supplied Mangalyam homepage reference into seven connected navigation pages. Cream, burgundy, gold, serif typography and ornamental borders carry through the site.
 
-The implementation focuses on visual similarity, responsive layouts, reusable components, and readable code.
+## Run locally
 
-## Features
+Use a Node.js version supported by the Vite dependency in package.json.
 
-- Wedding-themed design with cream, gold, and burgundy colours.
-- Hero section with blended background imagery and prominent branding.
-- Six service categories: marriage halls, resorts, caterers, hotels, photographers, and decorators.
-- Responsive service grid with six columns on desktop, three on tablet, and two on mobile.
-- Collapsible mobile navigation.
-- SVG service icons and trust badges.
-- Demo dialogs for login, favourites, and app downloads.
-- Keyboard focus styles and reduced-motion support.
-
-## Technologies
-
-- React
-- JavaScript
-- Vite
-- CSS with Grid, Flexbox, custom properties, and media queries
-- Inline SVG
-- ESLint
-- Google Fonts
-
-## Getting Started
-
-Install Node.js and npm, using a Node.js version compatible with the Vite version in `package.json`.
-
-Clone the repository:
-
-```bash
-git clone https://github.com/Monikarana27/mangalyam.git
-cd mangalyam
-```
-
-Install dependencies from the lockfile:
-
-```bash
+```sh
 npm ci
-```
-
-Start the development server:
-
-```bash
 npm run dev
 ```
 
-Open the local URL printed in the terminal.
+## Checks and production build
 
-## Available Commands
+```sh
+npm run lint
+npm run build
+npm run preview
+```
 
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Start the development server |
-| `npm run lint` | Check the code with ESLint |
-| `npm run build` | Generate the production build in `dist` |
-| `npm run preview` | Preview the production build locally |
+Vercel settings: Vite preset, build command `npm run build`, output `dist`. No environment variables are required.
 
-## Project Organisation
+## Pages and interactions
 
-- `src/components/` — reusable UI components, including the header, hero, service cards, icons, footer, and dialogs.
-- `src/data/services.js` — service titles, descriptions, and icon identifiers.
-- `src/App.jsx` — page composition.
-- `src/App.css` — component styling and responsive layouts.
-- `src/index.css` — global styles and resets.
-- `public/images/` — background artwork, logo, and decorative images.
-- `screenshots/` — desktop and mobile screenshots.
+- Home: original reference-based hero, six service categories and benefit icons.
+- About: brand concept, planning approach and service links.
+- Services: six categories with imagery and enquiry links.
+- Venues: six fictional venue concepts, combined search/location/setting/capacity filters, reset and empty states, detail dialogs.
+- Packages: three illustrative packages, inclusions, expandable FAQs and preselected enquiry links.
+- Blog: three original planning articles with readable article views.
+- Contact: labelled form fields and browser validation; creates a local, copyable celebration brief.
 
-## Design Approach
+Hash navigation (`#/venues`, for example) works on static hosting without rewrite configuration. Browser back/forward work normally. Navigation marks the current page; page changes update the title and move focus to main content. A skip link and native dialogs support keyboard navigation.
 
-The supplied reference guided the page composition, colour palette, typography, card styling, and decorative details.
+## Organisation
 
-The desktop hero uses a three-column layout. On smaller screens, the content stacks vertically, navigation collapses into a menu, and the service grid reduces its column count.
+- `src/pages/`: route-specific components.
+- `src/components/`: shared header, footer, page intro, decorative elements and homepage components.
+- `src/data/catalog.js`: illustrative venues, packages and editorial content.
+- `src/data/services.js`: service category data.
+- `src/hooks/useRoute.js`: hash navigation subscription.
+- `src/pages.css`: interior page layouts and responsive styling.
+- `src/App.css`: existing homepage and shared styles.
+- `public/images/`: original project artwork plus three newly generated thematic assets.
 
-Serif headings preserve the reference's traditional style, while sans-serif body text improves readability. A script font highlights “Special Day”.
+## Design and research
 
-Background imagery is combined with translucent cream overlays to keep text readable on smaller screens. Text and interactive controls remain HTML elements rather than being embedded in a screenshot.
+The reference homepage determines the visual language. Interior pages use quieter cream backgrounds, arched image cards and generous reading space. Grid layouts collapse at tablet and mobile breakpoints.
 
-Service content is stored separately from presentation components so categories can be updated without duplicating markup. Shared CSS variables help keep colours and typography consistent.
+Research informed venue discovery and enquiry patterns, not copied branding, text or assets:
 
-## Assets and Assumptions
+- https://www.weddingwire.in/wedding-venues
+- https://help.weddingwire.in/hc/en-in/articles/49669129952276-How-do-I-request-a-quote-from-a-vendor
+- https://theweddingvenues.com/venues
 
-- The reference was supplied as an image rather than an editable design file.
-- Background artwork, the logo, and decorative imagery were recreated with AI image-generation assistance.
-- Typography and illustrations are approximations of the reference; this is not a pixel-perfect reproduction using original source assets.
-- The mobile layout was adapted from the desktop reference.
-- Google Fonts requires an internet connection; fallback fonts are provided.
+Original article copy covers venue selection, budgeting and guest logistics. No fake reviews, testimonials or new business statistics were added.
 
-## Scope and Limitations
+## Assets
 
-This is a frontend UI demonstration.
+The original homepage artwork was recreated with AI assistance. Three additional AI-generated photographs are stored as `palace.png`, `garden.png`, and `details.png`. They depict illustrative settings, not real bookable properties. The source briefs are documented in `ASSET_PROMPTS.md`.
 
-- Login and favourites open informational dialogs; authentication and saved favourites are not implemented.
-- Download App opens an informational dialog because app-store URLs were not supplied.
-- Book Now links to the services section; there is no booking or payment flow.
-- Navigation items without dedicated pages use placeholder in-page destinations.
-- Service cards link to the footer contact anchor.
-- The phone number and promotional claims are demonstration content from the design.
-- No backend, database, or external API is connected.
+Google Fonts loads Great Vibes, Lora and Nunito Sans, with local fallbacks. No paid UI or icon library is required.
+
+## Scope and limitations
+
+This is a frontend assignment demonstration, not an operational booking marketplace.
+
+- Venue names, capacities and package inclusions are illustrative and marked as such.
+- No live prices, availability, real supplier directory, payments or reservations are connected.
+- Contact prepares a brief in page memory; it does not transmit or persist personal details. Copying requires browser clipboard permission; the brief is also selectable manually.
+- Login, favourites and download controls retain the existing informational demo dialogs.
+- Existing homepage phone number and promotional claims are reference content, not independently verified business claims.
+- Imagery and font choices approximate the supplied reference rather than using original brand assets.
 
 ## Validation
 
-- `npm run lint` completed successfully.
-- `npm run build` completed successfully.
-- Desktop and 375px mobile layouts were visually reviewed in Chrome.
-- The production build was previewed locally with `npm run preview`.
+ESLint and production build pass. Desktop browser checks covered navigation, combined venue filters and empty state, package-to-contact preselection and local brief creation. Responsive CSS is included; review the new pages at 375px and on a physical phone before final submission. The existing screenshots represent the earlier homepage and should be refreshed after installation.
 
-## Screenshots
+## Next steps for production
 
-### Desktop
-
-![Desktop layout](screenshots/desktop.png)
-
-### Mobile
-
-![Mobile layout](screenshots/mobile.png)
-
-## Potential Improvements
-
-- Replace recreated artwork with original brand assets.
-- Optimise large images and provide responsive image variants.
-- Connect navigation to dedicated pages.
-- Implement booking, authentication, and saved favourites.
-- Add real app-store destinations.
-- Extend testing across browsers and physical devices.
+Connect real supplier data, validated contact endpoints, consent and privacy information, authentication and booking services. Replace illustrative imagery with licensed venue photography and optimise images for delivery.

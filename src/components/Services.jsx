@@ -3,13 +3,13 @@ import ServiceIcon from './ServiceIcon'
 
 export default function Services() {
   return (
-    <section
-      id="services"
-      className="services"
-      aria-label="Our services"
-    >
+    <section id="services" className="services" aria-label="Our services">
       {services.map(({ id, icon, title, description }) => (
-        <a className="service-card" href="#contact" key={id}>
+        <a
+          className="service-card"
+          href={`#/contact?service=${encodeURIComponent(title)}`}
+          key={id}
+        >
           <ServiceIcon name={icon} />
           <h2>{title}</h2>
           <p>{description}</p>
